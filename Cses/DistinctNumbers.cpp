@@ -2,20 +2,20 @@
 
 using namespace std; 
 
+
+
 int main(){
-	long long n, count = 0;
-	long long m;
-	long arr[1000000005] = {0};
+	int n, counter = 0; 
+	long val; 
+	map<long, int> occ;
 	cin >> n;
-	for(int i = 0; i <= n; i++){
-		cin >> m;
-		arr[m]++;
-	}
-	for(int i = 0; i <= n; i++){
-		if(arr[i] != 0){
-			count++;
+	for(int i = 0; i < n; i++){
+		cin >> val; 
+		if(occ[val] == 0){
+			counter++;
 		}
+		occ[val]++;
 	}
-	cout << count;
+	cout << counter;
 	return 0;
 }
