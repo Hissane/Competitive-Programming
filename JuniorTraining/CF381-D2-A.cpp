@@ -21,6 +21,7 @@ int main(){
 				v.pop_back();
 			}
 		}else{
+			score2 = score2 + v[i];
 			if(v.front() > v.back()){
 				score2 = score2 + v.front();
 				v.pop_front();
