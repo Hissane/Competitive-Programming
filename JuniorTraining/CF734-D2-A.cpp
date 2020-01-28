@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-//test github
 
 int main(){
 	int n, a = 0, d = 0;
