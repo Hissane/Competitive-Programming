@@ -3,10 +3,10 @@
 using namespace std; 
 
 int main(){
-	double n, t, k, d, org, dbl;
+	double n, t, k, d;
 
 	cin >> n >> t >> k >> d;
-	
+
 	if(n <= k){
 		cout << "NO";
 	}else{
