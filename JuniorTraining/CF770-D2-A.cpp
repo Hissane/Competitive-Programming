@@ -7,6 +7,7 @@ int main(){
 	cin >> n >> k;
 	for(char c = 97; (c < (97 + k)) && count < n; c++){
 		count ++;
+		//test
 		counter ++;
 		if(counter > k){
 			c = 97;
