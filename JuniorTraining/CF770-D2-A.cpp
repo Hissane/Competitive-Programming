@@ -8,7 +8,6 @@ int main(){
 	vector<char> v;
 	cin >> n >> k;
 	s = s.substr(0, k);
-	//cout << s << endl;
 	for(int i = 0; i < (n / k); i++){
 		cout << s;
 	}
