@@ -3,17 +3,17 @@
 using namespace std;
 
 int main(){
-	int n, k, count = 0, counter = 0;;
+	int n, k, counter = 0, m;
+	string s = "abcdefghijklmnopqrstuvwxyz";
+	vector<char> v;
 	cin >> n >> k;
-	for(char c = 97; (c < (97 + k)) && count < n; c++){
-		count ++;
-		//testtest
-		counter ++;
-		if(counter > k){
-			c = 97;
-			counter = 0;
-		}
-		cout << c;
+	s = s.substr(0, k);
+	//cout << s << endl;
+	for(int i = 0; i < (n / k); i++){
+		cout << s;
 	}
+	m = n % k;
+	s = s.substr(0, m);
+	cout << s;
 	return 0;
 }
