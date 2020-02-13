@@ -11,8 +11,9 @@ int main(){
 		if(res <= 0){
 			cout << min(c, m) << endl; 
 		}else{
+			res = (c + m + x) / 3;
 			cout << res << endl;
 		}
 	}
 	return 0;
-}
+} 
