@@ -13,10 +13,6 @@ int main(){
 				arr[i] = x;
 			}
 		}
-		//for(int i = 1; i <= n; i++){
-			//cout << arr[i] << " ";
-		//}
-		//cout << endl;
 	}
 	for(int i = 1; i <= n; i++){
 		cout << arr[i] << " ";
