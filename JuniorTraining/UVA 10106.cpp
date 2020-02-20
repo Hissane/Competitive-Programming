@@ -1,26 +1,44 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 
-using namespace std; 
+using namespace std;
 
 int main(){
-	string s1, s2;
-	list<int> l1;
+	int n1, n2;
+	string s1;
+	string s2;
+	int arr1[1000];
+	int arr2[1000];
+	int ans[100005];
 	while(cin >> s1 >> s2){
-		for(int i = 0; i < s1.length(); i++){
-			l1.push_back(s[i]);
+		n1 = s1.length();
+		n2 = s2.length();
+		for(int i = 0; i < n1; i++){
+			arr1[n1-i-1] = s1[i];
 		}
-		for(int i = s2.length(); i > 0; i--){
-			mul = (int)(s2[i] - '0');
-			for(int j = 0; j < l1.length(); j++){
+		for(int i = 0; i < n2; i++){
+			arr2[n2-i-1] = s2[i];
+		}
 
-			}
-			for(int j = 0; j < i; j++){
-				l1.push_front(0);
+
+		for(int i = 0; i < n2; i++){
+			for(int j = 0; j < n1; j++){
+				ans[i+j] += arr2[j]*arr1[i];
 			}
 		}
-		for(int i = s1.length(); i > 0; i--){
-			
+		int i = 100004;
+		while(i > 0 && ans[i]==0){
+			i--;
 		}
+		for(int j = 0; j <= i; j++){
+			if(ans[j] > 9){
+				ans[j+1] += ans[j]/10;
+				ans[j] = ans[j]%10;
+			}
+		}
+		for(; i >= 0; i--){
+			cout << ans[i];
+		}
+		cout << endl;
 	}
 	return 0;
 }
