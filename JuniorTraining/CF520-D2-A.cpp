@@ -3,23 +3,22 @@
 using namespace std;
 
 int main(){
-	string s; 
-	int n; 
+	int n;
 	map<char, int> map;
-	cin >> n >> s;
-	for(char c = 'a'; c < 'z'; c++){
-		map[c] = 1;
+	char c;
+	cin >> n;
+	for(char ch = 'a'; ch <= 'z'; ch++){
+		map[ch] = 0;
 	}
 	for(int i = 0; i < n; i++){
-		if(s[i] < 'a'){
-			s[i] += 'a'-'A';
+		cin >> c;
+		if( c < 'a'){
+			c += 'a' - 'A';
 		}
-		map[s[i]]++;
+		map[c]++;
 	}
-	cout << s << endl;
 	for(auto x : map){
-		cout << x.first;
-		if(x.second == 1){
+		if(x.second < 1){
 			cout << "NO";
 			return 0;
 		}
