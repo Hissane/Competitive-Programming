@@ -16,7 +16,7 @@ int main(){
 			if(c == 1){
 				res = ceil((n-7)/2.0)*ceil((m-7)/2.0);
 			}else{
-				res = ceil((n-8)/2.0)*ceil((m-8)/2.0);
+				res = ceil((n-8)/2.0)+ceil((m-8)/2.0);
 			}
 		}
 		cout << res << endl;
