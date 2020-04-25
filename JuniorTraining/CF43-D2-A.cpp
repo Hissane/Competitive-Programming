@@ -13,7 +13,6 @@ int main(){
 		map[s]++;
 	}
 	for(auto x : map){
-		//cout << x.first << " " << x.second << endl;
 		if(x.second > max){
 			res = x.first;
 			max = x.second;
