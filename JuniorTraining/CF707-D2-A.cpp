@@ -10,11 +10,11 @@ int main(){
 		for(int j = 0; j < m; j++){
 			cin >> val;
 			if(val == 'C' || val == 'Y' || val == 'M'){
-				cout << "#Black&White";
+				cout << "#Color";
 				return 0;
 			}
 		}
 	}
-	cout << "#Color";
+	cout << "#Black&White";
 	return 0;
 }
