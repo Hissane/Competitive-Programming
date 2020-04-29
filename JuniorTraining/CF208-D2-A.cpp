@@ -13,7 +13,6 @@ int main(){
 		}else if(s[i+1] == 'W' && s[i+2] == 'U' && s[i+3] == 'B'){
 			cout << s[i];
 			cout << " ";
-			//i = i + 3;
 		}else{
 			cout << s[i];
 		}
