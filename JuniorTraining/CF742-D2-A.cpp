@@ -5,9 +5,16 @@ using namespace std;
 int main(){
 	long long n, res = 1;
 	cin >> n;
-	for(int i = 0; i < n; i++){
-		res = res * 1378;
-		cout << i + 1 << " " << res << endl;
+	if(n == 0){
+		cout << 1;
+	}else if(n % 4 == 0){
+		cout << 6;
+	}else if(n % 4 == 1){
+		cout << 8;
+	}else if(n % 4 == 2){
+		cout << 4;
+	}else if(n % 4 == 3){
+		cout << 2;
 	}
 	return 0;
 }
