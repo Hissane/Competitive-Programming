@@ -7,8 +7,12 @@ int main(){
 	int val1, val2, res;
 	map<int, int> map;
 	cin >> n >> m;
-
-	res = n - 1 - m;
+	for(int i = 0; i < m; i++){
+		cin >> val1 >> val2;
+		map[val1]++;
+		map[val2]++;
+	}
+	res = n - (map.size() ? map.size() : 1);
 	cout << res;
 	return 0;
 }
