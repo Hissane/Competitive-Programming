@@ -1,44 +1,64 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h> 
 
 using namespace std;
-
-void swap(int *xp, int *yp) 
-{ 
-    int temp = *xp; 
-    *xp = *yp; 
-    *yp = temp; 
-} 
-int bubbleSort(int arr[], int n){ 
-   int i, j, count = 0; 
-   bool swapped; 
-   for (i = 0; i < n-1; i++) 
-   { 
-     swapped = false; 
-     for (j = 0; j < n-i-1; j++) 
-     { 
-        if (arr[j] > arr[j+1]) 
-        { 
-           swap(&arr[j], &arr[j+1]); 
-           count++;
-           swapped = true; 
+  
+int merge(int arr[], int temp[], int left, int mid, int right){ 
+    int inv_count = 0; 
+  
+    int i = left; 
+    int j = mid;  
+    int k = left; 
+    while ((i <= mid - 1) && (j <= right)) { 
+        if (arr[i] <= arr[j]) 
+            temp[k++] = arr[i++]; 
+        else{ 
+            temp[k++] = arr[j++]; 
+            inv_count = inv_count + (mid - i); 
         } 
-     } 
-     if (swapped == false) 
-        break; 
-   } 
-   return count;
-}
+    } 
+  
+    while (i <= mid - 1) 
+        temp[k++] = arr[i++]; 
+  
+    while (j <= right) 
+        temp[k++] = arr[j++]; 
+  
+    for (i=left; i <= right; i++) 
+        arr[i] = temp[i]; 
+  
+    return inv_count; 
+} 
+  
+int _mergeSort(int arr[], int temp[], int left, int right){ 
+    int mid, inv_count = 0; 
+    if (right > left) 
+    { 
+        mid = (right + left)/2; 
+  
+        inv_count  = _mergeSort(arr, temp, left, mid); 
+        inv_count += _mergeSort(arr, temp, mid+1, right); 
+  
+        inv_count += merge(arr, temp, left, mid+1, right); 
+    } 
+  
+    return inv_count; 
+} 
   
 
-int main(){
-	int n, val, res;
-	int arr[100005];
-	cin >> n;
-	for(int i = 0; i < n; i++){
-		cin >> val;
-		arr[i] = val;
-	}
-	res = bubbleSort(arr, n);
-	cout << res;;
-	return 0;
-}
+int countSwaps(int arr[], int n) { 
+    int temp[n]; 
+    return _mergeSort(arr, temp, 0, n - 1); 
+} 
+  
+int main(){ 
+    int n, val, res;
+    int arr[100005];
+    cin >> n;
+    for(int i = 0; i < n; i++){
+        cin >> val;
+        arr[i] = val;
+    }
+    res = countSwaps(arr, n);
+    cout << res;;
+    return 0;
+} 
