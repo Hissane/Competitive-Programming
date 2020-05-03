@@ -1,3 +1,7 @@
+// this solution is wrong, it should be a union find
+// will be updating this solution soon
+
+
 #include<bits/stdc++.h> 
 
 using namespace std;
