@@ -2,8 +2,10 @@
 
 using namespace std;
 
+map<int, int> map;
+
 int fibo(int n){
-	std::map<int, int> map;
+	
 	if(map[n] == 0){
 		if(n == 1 || n == 0){
 			map[n] = 1;
@@ -16,9 +18,10 @@ int fibo(int n){
 
 int main(){
 	int q, n;
+	
 	cin >> n;
 	for(int i = 0; i < q; i++){
-		cin >> n;
+		cin >> q;
 		cout << fibo(n) << endl;	
 	}
 	return 0;
