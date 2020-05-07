@@ -4,7 +4,7 @@ using namespace std;
 
 map<int, int> my_map;
 
-int fibo(int n){	
+long long fibo(int n){	
 	if(my_map[n] == 0){
 		if(n == 1 || n == 2){
 			my_map[n] = 1;
