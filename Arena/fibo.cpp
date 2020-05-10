@@ -1,5 +1,5 @@
-//Unfinished solution
-//Will be updated soon
+// Unfinished solution
+// Will be updated soon
 
 #include<bits/stdc++.h>
 
