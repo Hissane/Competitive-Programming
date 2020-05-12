@@ -5,17 +5,18 @@
 
 using namespace std;
 
-map<int, int> my_map;
+int arr[1000006] = {0};
 
-long long fibo(int n){	
-	if(my_map[n] == 0){
-		if(n == 1 || n == 2){
-			my_map[n] = 1;
-		}else{
-			my_map[n] = fibo(n-1) + fibo(n-2);
-		}
+long long fibo(int a){	
+	if(a == 0){
+		return 0;
+	}else if(a == 1){
+		return 1;
 	}
-	return my_map[n];
+	if(arr[a] == 0){
+		arr[a] = (fibo(a - 1)% 1000000007  + fibo(a - 2)% 1000000007)% 1000000007;
+	}
+	return arr[a];
 }
 
 int main(){
