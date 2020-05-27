@@ -4,8 +4,8 @@ using namespace std;
 
 int main(){
 	string s;
-	int max_so_far, curr_max;
-	int arr[29];
+	long long  max_so_far, curr_max;
+	long long arr[29];
 
 	cin >> s;
 	for(int i = 0; i < 26; i++){
