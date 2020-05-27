@@ -16,7 +16,7 @@ int main(){
 		if(s[0] == c){
 			curr_max = arr[c - 'a'];
 		}else{
-			curr_max = (-1)*arr[c - 'a'];
+			curr_max = (-1)*arr[s[0] - 'a'];
 		}
 		for(int i = 1; i < s.length(); i++){
 			if(s[i] == c){

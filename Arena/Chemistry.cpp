@@ -1,18 +1,16 @@
 #include<bits/stdc++.h> 
-
 using namespace std;
 
-bool check(int val, int budget, int nbr, int x[], int q[], int c[]){
+int check(int val, int budget, int nbr, int x[], int q[], int c[]){
 	for(int k = 0; k < nbr; k++){
 		budget -= (x[k]-q[k])*c[k]*val;
 	}
 	if(budget < 0){
-		return false;
+		return 0;
 	}else{
-		return true;
+		return 1;
 	}
 }
-
 int main(){
 	long long t, X, n, left, right, mid;
 	int x[100005], c[100005], q[100005];
