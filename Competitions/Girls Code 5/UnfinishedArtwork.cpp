@@ -1,22 +1,41 @@
-// this solution is wrong, it should be a union find
-// will be updating this solution soon
-
-
-#include<bits/stdc++.h> 
+#include<bits/stdc++.h>
 
 using namespace std;
 
+vector<int> visited;
+
+void dfs(int x, vector<vector<int>> &g){
+	for(auto u : g[x]){
+		if(!visited[u]){
+			visited[u] = 1;
+			dfs(u, g);
+		}
+	}
+}
+
 int main(){
-	int n, m;
-	int val1, val2, res;
-	map<int, int> map;
+	int n, m, val1, val2, res = 0;
+
 	cin >> n >> m;
+	
+	visited.resize(n+1);
+
+	vector<vector<int>> v(n+1);
+	
+
 	for(int i = 0; i < m; i++){
 		cin >> val1 >> val2;
-		map[val1]++;
-		map[val2]++;
+		v[val1].push_back(val2);
+		v[val2].push_back(val1);
 	}
-	res = n - (map.size() ? map.size() : 1);
-	cout << res;
+
+	for(int i = 1; i <= n; i++){
+		if(!visited[i]){
+			visited[i] = 1;
+			dfs(i, v);
+			res++;
+		}
+	}
+	cout << res - 1;
 	return 0;
 }
