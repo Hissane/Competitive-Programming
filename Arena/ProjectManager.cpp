@@ -6,19 +6,18 @@ vector<int> visited;
 vector<int> weight;
 int res;
 
-void dfs(int x, vector<vector<int>> &g){
-	int max = 0;
+int dfs(int x, vector<vector<int>> &g){
+	int max = 0, max_son = 0, son = 0;
 	for(int u : g[x]){
 		if(!visited[u]){
 			visited[u] = 1;
-			dfs(u, g);
-			if(weight[u-1] > max){
-				max = weight[u-1];
+			son = dfs(u, g);
+			if(son > max_son){
+				max_son = son;
 			}
 		}
 	}
-	res += weight[x-1] + max;
-	//topo.push_back(x);
+	return weight[x] + max_son;
 }
 
 int main(){
@@ -32,25 +31,28 @@ int main(){
 		visited.clear();
 		weight.clear();
 		visited.resize(n);
-		weight.resize(n);
+		weight.resize(n+1);
 
 		vector<vector<int>> v(n);
 		for(int j = 0; j < n; j++){
 			cin >> val1 >> val2;
 			v[val1].push_back(val2);
 		}
-		for(int j = 0; j < n; j++){
+		weight.push_back(0);
+		for(int j = 1; j <= n; j++){
 			cin >> val;
-			weight.push_back(val);
+			weight[j] = val;
 		}
 
 		for(int j = 0; j < n; j++){
 			if(!visited[j]){
 				visited[j] = 1;
-				dfs(j, v);
-				
+				if(res < dfs(j, v)){
+					res = dfs(j, v);
+				}	
 			}
 		}
+		cout << res << endl;
 	}
 	return 0;
 }
