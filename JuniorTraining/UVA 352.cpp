@@ -1,39 +1,42 @@
-#include<bits/stdc++.h>
+#include<bits/stdc++.h> 
 
-using namespace std;
+using namespace std; 
 
-int visited[30][30] = {0};
+int arr[30][30];
+int visited[30][30];
+int n;
 
-int counter(int i, int j){
+void dfs(int i, int j){	
 	visited[i][j] = 1;
 	for(int k = -1; k < 2; k++){
 		for(int l = -1; l < 2; l++){
-			if(arr[i+k][j+l] = 1 && visited[i+k][j+l] == 0){
-				counter(i+k, j+l);
+			if(i+k < n && i+k > 0 && i+k > 0 && j+l < n && visited[i+k][j+l] == 0 && arr[i+k][j+l] == 1){
+				dfs(i+k,j+l);
 			}
 		}
 	}
 }
 
 int main(){
-	int n, res = 0;
+	int count = 1;
 	while(cin >> n){
-		int arr[30][30] = {0};
-		visted[30][30] = {0};
+		int res = 0;
 		for(int i = 0; i < n; i++){
 			for(int j = 0; j < n; j++){
 				cin >> arr[i][j];
+				visited[i][j] = 0;
 			}
 		}
 		for(int i = 0; i < n; i++){
 			for(int j = 0; j < n; j++){
-				if(arr[i][j] = 1 && visited[i][j] == 0){
-					counter(i, j);
+				if(visited[i][j] == 0 && arr[i][j] == 1){
+					dfs(i,j);
 					res++;
 				}
 			}
 		}
-		cout << res << endl;
+		cout << "Image number " << count << " contains " << res << " war eagles." << endl;
+		count++;
 	}
-	return 0;
+	return 0; 
 }
