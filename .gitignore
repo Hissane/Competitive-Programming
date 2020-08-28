@@ -1,5 +1,5 @@
 a.out
 in 
 out 
-.idea
-.vscode
+*.idea
+*.vscode
