@@ -1,29 +1,28 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-int main(){
-	int len = 0;
-	string n,e,s;
-	char prev;
-	cin >> n >> e >> s;
-	prev = s[1];
-	for(int i = 0; i < s.length(); i++){
-		if(s[i] != ',' && s[i] != ']' && s[i] != '['){
-			if(prev == s[i] && i != 1){
-				s[i] = ',';
-			}else{
-				len++;
-				prev = s[i];
-			}
-		}
-	}
-	cout << len << ", nums = [" << s[1];
-	for(int i = 2; i < s.length(); i++){
-		if(s[i] != ',' && s[i] != ']' && s[i] != '['){
-			cout << "," << s[i];
-		}
-	}
-	cout << "]";
-	return 0; 
-}
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int len = 0;
+	    char prev;
+        for(int i = 0; i < nums.size(); i++){
+            if(prev == nums[i] && i != 0){
+                for(int j = i; j < nums.size(); j++){
+                    if(prev == nums[j]){
+                        j++;
+                    }else{
+                        nums [j] = nums [j+1];
+                    }
+                }
+                prev = nums[i];
+            }else{
+                len++;
+                prev = nums[i];
+            }
+        }
+        cout << len << ", nums = [" << nums[0];
+        for(int i = 1; i < len; i++){
+           cout << "," << nums[i];     
+        }
+        cout << "]";
+        return len; 
+    }
+};
