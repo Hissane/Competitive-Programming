@@ -6,11 +6,7 @@ public:
         for(int i = 0; i < nums.size(); i++){
             if(prev == nums[i] && i != 0){
                 for(int j = i; j < nums.size(); j++){
-                    if(prev == nums[j]){
-                        j++;
-                    }else{
-                        nums [j] = nums [j+1];
-                    }
+                    nums [j] = nums [j+1];
                 }
                 prev = nums[i];
             }else{
