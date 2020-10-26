@@ -1,29 +1,26 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        int len = nums.size();
-        for(int i = 1; i < nums.size(); i++){
-            int prev = nums[i-1];
-            if(prev == nums[i]){
-                int k = 0;
-                while(((i+k) < nums.size()) && prev == nums[i+k]){
-                    k++;
-                    len--;
-                }
-                for(int j = i; (j+k) < nums.size(); j++){
-                    nums [j] = nums [j+k];
-                }
-                nums.resize(nums.size()-k);
+        int l = 0, r = 0;
+        while(r < nums.size()){
+            while(r < nums.size() && nums[l] == nums[r]){
+                r++;
+            }
+            l++;
+            if(r != nums.size()){
+                nums[l] = nums[r];  
+            }else{
+                break;
             }
         }
-        cout << len << ", nums = [";
-        for(int i = 0; i < len-1; i++){
+        cout << l << ", nums = [";
+        for(int i = 0; i < l-1; i++){
            cout << nums[i]<< ",";
         }
-        if(len){
-            cout << nums[len-1];
+        if(l){
+            cout << nums[l-1];
         }
         cout << "]";
-        return len; 
+        return l; 
     }
 };
