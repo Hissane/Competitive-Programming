@@ -11,6 +11,9 @@ int main(){
     string ext, form, c;
     for (int i = 0; i < n; i++){
         cin >> ext >> form;
+        for( int l = 0; l < ext.length(); l++){
+            ext[l] = tolower(ext[l]);
+        }
         map[ext] = form;
     }
     for (int i = 0; i < q; i++) {
