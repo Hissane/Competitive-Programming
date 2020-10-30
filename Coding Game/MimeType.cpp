@@ -2,20 +2,13 @@
 
 using namespace std;
 
-/**
- * Auto-generated code below aims at helping you parse
- * the standard input according to the problem statement.
- **/
+int main(){
 
-int main()
-{
     map<string, string> map;
-    int n; // Number of elements which make up the association table.
-    cin >> n; cin.ignore();
-    int q; // Number Q of file names to be analyzed.
-    cin >> q; cin.ignore();
+    int n, q; 
+    cin >> n >> q;
     string ext, form;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++){
         cin >> ext >> form;
         map[ext] = form;
     }
@@ -26,13 +19,16 @@ int main()
         while( i >= 0 && name[i] != '.' ){
             i--;
         }
-        //cout << name.substr(i+1) << endl;
+        cout << name.substr(i+1) << endl;
         if(i >= 0){
             
-            cout << map[name.substr(i+1)]<< endl;
+            //cout << map[name.substr(i+1)]<< endl;
         }else{
-            cout << "UNKNOWN" << endl;
+            //cout << "UNKNOWN" << endl;
         }
         
+    }
+    for(auto x : map){
+        cout << x.first << " " << x.second << endl;  
     }
 }
