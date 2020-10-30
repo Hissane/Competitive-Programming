@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <ctype.h>
 
 using namespace std;
 
@@ -7,28 +8,29 @@ int main(){
     map<string, string> map;
     int n, q; 
     cin >> n >> q;
-    string ext, form;
+    string ext, form, c;
     for (int i = 0; i < n; i++){
         cin >> ext >> form;
         map[ext] = form;
     }
     for (int i = 0; i < q; i++) {
         string name;
-        getline(cin, name); 
-        i = name.length()-1;
-        while( i >= 0 && name[i] != '.' ){
-            i--;
+        cin >> name;
+        cout << name << " ";
+        int j = name.length()-1;
+        while( j >= 0 && name[j] != '.' ){
+            j--;
         }
-        cout << name.substr(i+1) << endl;
-        if(i >= 0){
-            
-            //cout << map[name.substr(i+1)]<< endl;
+        c = name.substr(j+1);
+        for(int k = 0; k < c.length(); k++){
+            c[k] = tolower(c[k]);
+        }
+        cout << c << " ";
+        if(j >= 0 && map[c] != ""){
+            cout << map[c]<< endl;
         }else{
-            //cout << "UNKNOWN" << endl;
+            cout << "UNKNOWN" << endl;
         }
         
-    }
-    for(auto x : map){
-        cout << x.first << " " << x.second << endl;  
     }
 }
