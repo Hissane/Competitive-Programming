@@ -5,8 +5,9 @@ public:
         for(int i = 0; i < nums.size(); i++){
             if(nums[i] == 0){
                 count++;
-            }
-            nums.erase(nums.begin()+i-1);
+                nums.erase(nums.begin()+i);
+                i--;
+            }   
         }
         for(int i = 0; i < count; i++){
             nums.push_back(0);
