@@ -6,7 +6,7 @@ public:
             if(nums[i] == 0){
                 count++;
             }
-            nums.erase(nums.begin()+i);
+            nums.erase(nums.begin()+i-1);
         }
         for(int i = 0; i < count; i++){
             nums.push_back(0);
