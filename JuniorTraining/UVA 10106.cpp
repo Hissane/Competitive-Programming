@@ -42,3 +42,36 @@ int main(){
 	}
 	return 0;
 }
+
+
+
+///// or we can do this :
+
+#include<bits/stdc++.h> 
+
+using namespace std;
+
+int main(){
+	string s1, s2;
+	vector<int> v;
+	while(cin >> s1 >> s2){
+		int res = 0;
+		n1 = s1.length();
+		n2 = s2.length();
+		for(int i = 0; i < s1.length(); i++){
+			v1[i] = s1[n1 - i -1];
+		}
+		for(int i = 0; i < s2.length(); i++){
+			v2[i] = s2[n2 - i -1];
+		}
+		for(int i = 0; i < n2; i++){
+			tem = 0;
+			for(int j = 0; j < n1; j++){
+				temp += v2[i]*v1[j] * pow(10,j);
+			}
+			res += temp*pow(10, i);
+		}
+		cout << res;
+	}
+	return 0;
+}
