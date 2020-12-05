@@ -12,6 +12,9 @@ public:
                 temp += strs[i][j];
                 j++;
             }
+            if(temp == ""){
+                return temp;
+            }
             strs[i+1] = temp;
         }
         return strs[strs.size()-1];
