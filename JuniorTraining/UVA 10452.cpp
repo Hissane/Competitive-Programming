@@ -26,25 +26,24 @@ int main(){
 		int o = 0;
 		while(o < 7){
 			if(ns-1 >= 0 && arr[ms][ns-1] == v[o]){
-				cout << "left ";
+				cout << "left";
 				ns = ns-1;
 			}else if(ns+1 < n && arr[ms][ns+1] == v[o]){
-				cout << "right ";
+				cout << "right";
 				ns = ns+1;
 			}else if(ms-1 >= 0 && arr[ms-1][ns] == v[o]){
-				cout << "forth ";
+				cout << "forth";
 				ms = ms-1;
 			}else if(ms+1 < m && arr[ms+1][ns] == v[o]){
-				cout << "forth ";
+				cout << "forth";
 				ms = ms+1;
+			}
+			if( o < 6){
+				cout << " ";
 			}
 			o++;
 		}
-		if(i < t-1){
-			cout << endl;
-		}
+		cout << endl;
 	}
-
-
 	return 0;
 }
