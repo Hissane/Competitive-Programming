@@ -12,7 +12,10 @@ void topo(int node, vector<int> &visited, map<int, vector<int>> &map, vector<int
 	q.push_back(node);
 }
 
-int main(){
+int main(int argc, char** argv){
+    for(int i = 0; i < argc; i++){
+        cout << argv[i]<< endl;
+    }
 	int n, m, val1, val2; 
 	cin >> n >> m;
 	cout << n << m;
