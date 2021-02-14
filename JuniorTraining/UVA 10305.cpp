@@ -14,10 +14,7 @@ void topo(int node, vector<int> &visited, map<int, vector<int>> &map, vector<int
 
 int main(){
 	int n, m, val1, val2; 
-	cin >> n >> m;
-	cout << n << m;
-	return 0;
-	while(cin >> n >> m && n && m){
+	while(cin >> n >> m && n){
 		map<int, vector<int>> map;
 		vector<int> visited(n+1, 0);
 		vector<int> q;
