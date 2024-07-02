@@ -11,5 +11,3 @@ public:
         return k;
     }
 };
-
-//tests
